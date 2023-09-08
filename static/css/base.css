@@ -1,0 +1,206 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  /*background-color: #ECECEC;*/
+  background-color: black;
+  overflow: hidden;
+}
+
+a {
+    color: inherit;
+}
+body {
+    background-color: #1c1c1c;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #F0EBF4;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.quizlog {
+
+    background-color: #F78888;
+    padding: 20px;
+}
+
+.stack {
+
+    background-color: #F3D250;
+    padding: 20px;
+}
+
+.schedule {
+
+    background-color: #90CCF4;
+    padding: 20px;
+}
+
+.container {
+    
+    width: 75%;
+    margin: auto;
+    background-color: #F0EBF4;
+    padding: 20px;
+}
+
+h1 {
+
+    font-family: "merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+h2 {
+
+    font-family: "merriweather", serif;
+    font-weight: 900;
+}
+
+h2 {
+
+    font-family: "merriweather", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+h3 {
+
+    font-family: "merriweather", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+h4 {
+
+    font-family: "merriweather", serif;
+    font-weight: 400;
+}
+
+p {
+
+    font-family: "merriweather", serif;
+    font-weight: 300;
+}
+
+input {
+
+    width: 100%;
+    margin: 8px, 0;
+    padding: 12px, 20px;
+    box-sizing: border-box;
+border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+
+}
+
+label {
+
+    font-family: "merriweather", serif;
+    font-weight: 300;
+    font-style:italic;
+    padding:20px;
+}
+
+textarea {
+
+     width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+
+  }
+
+.checklist {
+
+    background-color: #2d2d2e;
+    color: #F0EBF4;
+    padding:20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin-right:auto;
+}
+
+.qtitle {
+    background-color: #2d2d2e;
+    color: #F0EBF4;
+    padding:20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin-right:auto;
+}
+
+.collapsible {
+    background-color: #bf5c5c;
+    color: #F0EBF4;
+    padding:20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin-right:auto;
+}
+
+.active, .collapsible:hover, .h_collapsible:hover {
+    background-color: black;
+}
+
+.answer {
+    background-color: #f5a2a2;
+    color: #F0EBF4;
+    padding:20px;
+    display:none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin-right:auto;
+}
+
+.h_collapsible {
+    background-color:#2c80b8;
+    color: #F0EBF4;
+    padding:20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #082b42;
+    width: 50%;
+    margin-right:auto;
+}
+
+.h_answer {
+    background-color: black;
+    color: #F0EBF4;
+    padding:20px;
+    display:none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin-right:auto;
+}

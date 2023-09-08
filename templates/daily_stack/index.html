@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="stack">
+
+    <div class="container">
+<h1> {{ user.username }}'s Stack:</h1>
+
+<h4> Today: {{ day }}/{{ month }}/{{ year }} </h4>
+
+{% for k,v in warning.items %}
+
+<h3> Next Assignment: {{ k }} is due in {{ v }} days! </h3>
+
+{% endfor %}
+
+<div class="checklist">
+ {% for s in stack %}
+
+ <a href="{% url 'daily_stack:assignment' s.id %}">
+     <p>{{ s.name }} (due {{ s.due_date }})</p>
+ </a>
+
+
+ {% endfor %}
+</div>
+ <h2> Add a new assignment: </h2>
+
+ <form action "{% url 'daily_stack:index' %}" method="post">
+     {% csrf_token %}
+     {{ form }}
+
+     <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+
+ </form>
+
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Django{% endblock %}</title>
+         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+         <link rel="stylesheet" href="https://use.typekit.net/yie7eet.css">
+         <script src="{% static 'js/index.js' %}"></script>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="{% url 'daily_stack:index' %}">MyStack</a>
+  <a href="{% url 'schedule:index' %}">MySchedule</a>
+  <a href="{% url 'quizlog:index' %}">MyQuizLog</a>
+  <a href="{% url 'monitor:index' %}">MyMonitor</a>
+   <a href="{% url 'home' %}">About</a>
+
+</div>
+
+<main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="quizlog">
+
+    <div class="container">
+
+{% if user.is_authenticated %}
+<h1> {{ user.username }}'s Quizlog Hub</h1>
+
+
+ <a href="{% url 'quizlog:quiz' %}">
+ <p>View Questions</p>
+ </a>
+
+ <h2> Add a new Question: </h2>
+
+ <form action "{% url 'quizlog:index' %}" method="post">
+     {% csrf_token %}
+     {{ form }}
+
+     <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+
+ </form>
+
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
+    </div>
+</div>
+{% endblock %}

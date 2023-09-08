@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="stack">
+    <div class="container">
+{% if user.is_authenticated %}
+<h1> {{ user.username }}'s Session Monitor:</h1>
+
+ <form action "{% url 'monitor:index' %}" method="post">
+     {% csrf_token %}
+     {{ form }}
+
+     <button id="submit-button" type="submit" name="get_schedule" class="btn btn-primary">Submit</button>
+
+ </form>
+
+ <br><br> 
+
+ <h3> Data Breakdown: </h3>
+ {% for k,v in monitor.items %}
+ <table>
+     <tr>
+         <th> {{ k }} </th>
+         {% for s,n in v.items %}
+         
+         <td>  {{ s }}: {{ n }} </td>
+         
+         {% endfor %}
+
+     </tr>
+         {% endfor %}
+ </table>
+
+ {% for k,v in monitor.items %}
+
+<a href="{% url 'monitor:edit' k %}"><button> Edit {{ k }} </button></a>
+
+{% endfor %}
+
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+    </div>
+</div>
+{% endblock %}

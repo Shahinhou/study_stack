@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="schedule"</div>
+<div class="container">
+<h1> Welcome {{ user.username }}! </h1>
+
+<h2> StudyStack Feature Breakdown: </h2>
+
+ <button onclick="defold(this)" class="h_collapsible">MyQuizLog</button>
+ 
+ <div class="h_answer"> <p> Submit a (brief) question/answer based on material you studied. Organically compile a list of KEY QUESTIONS for revision. </p> </div>
+ 
+
+ <button onclick="defold(this)" class="h_collapsible">Schedule</button>
+ 
+ <div class="h_answer"> <p> Fetch your latest (DCU) timetable or view the last timetable you fetched. </p> </div>
+
+
+ <button onclick="defold(this)" class="h_collapsible">MyMonitor</button>
+
+ <div class="h_answer"> <p> Log your study sessions and track how long you spend/sessions dedicated to each subject. </p> </div>
+
+ <button onclick="defold(this)" class="h_collapsible">MyStack</button>
+
+ <div class="h_answer"> <p> Log and track assignments (sorted by which is due next) </p> </div>
+
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}

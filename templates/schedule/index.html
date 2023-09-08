@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="schedule">
+    <div class="container">
+{% if user.is_authenticated %}
+<h1> {{ user.username }}'s Schedule:</h1>
+
+
+
+{% if schedule|length == 0 %}
+
+{% if course.name == 'none' %}
+
+ <form action "{% url 'schedule:index' %}" method="post">
+     {% csrf_token %}
+     {{ form }}
+
+     <button id="submit-button" type="submit" name="get_schedule" class="btn btn-primary">Submit</button>
+
+ </form>
+
+ {% else %}
+
+ <form action "{% url 'schedule:index' %}" method="post">
+     {% csrf_token %}
+
+ <button id="submit-button" type="submit" name="offline" value="{{ course.name }}" class="btn btn-primary">Last Saved Schedule</button>
+
+ <button id="submit-button" type="submit" name="get_schedule_from_model" value="{{ course.name }}" class="btn btn-primary">Get Latest Schedule</button>
+ 
+ <button id="submit-button" type="submit" name="reset_name" value="{{ course.name }}" class="btn btn-primary">Reset</button>
+
+ </form>
+
+ {% endif %}
+
+ {% else %}
+ 
+ {% for k,v in schedule.items %}
+ <table>
+     <tr>
+         <th> {{ k }} </th>
+         {% for lesson in v %}
+         <tr><td> {{ lesson }} </td></tr>
+         {% endfor %}
+ </table>
+ {% endfor %}
+
+ {% endif %}
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+    </div>
+</div>
+{% endblock %}

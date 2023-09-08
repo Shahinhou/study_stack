@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="quizlog">
+    <div class="container">
+
+{% if user.is_authenticated %}
+<h1> {{ user.username }}'s Quizlog Questions</h1>
+
+
+ <a href="{% url 'quizlog:index' %}">
+ <p>Back to Question Submit</p>
+ </a>
+
+ {% for q in questions %}
+ 
+ <div class="qtitle">
+ <h3> {{ q.title }} </h3>
+ </div>
+ <button onclick="defold(this)"type="button" class="collapsible"> {{ q.content }} </button>
+ <div class="answer">
+ <p> {{ q.answer }} </p>
+ </div>
+ <form action "{% url 'quizlog:quiz' %}" method="post">
+     {% csrf_token %}
+     <button type="submit" name="remove" value="{{ q.id }}">Remove Question</button>
+ </form>
+ {% endfor %}
+
+
+
+
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+    </div>
+</div>
+{% endblock %}
